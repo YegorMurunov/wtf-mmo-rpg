@@ -660,10 +660,15 @@ main.page {
 .footer__columns {
   width: 100%;
   display: flex;
-  gap: 30px;
+  gap: 40px;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
+}
+@media (max-width: 680px) {
+  .footer__columns {
+    flex-direction: column;
+  }
 }
 .footer__item {
   display: flex;
