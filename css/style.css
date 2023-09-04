@@ -56,12 +56,10 @@ a {
   text-decoration: none;
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-
 .btn.green {
   background: #6cc880;
   color: rgba(0, 0, 0, 0.7);
 }
-
 .btn:hover {
   background: #3378ff;
   color: #e9ebf9;
@@ -77,16 +75,13 @@ header.open .header__menu-body {
   transform: scale(1);
   opacity: 1;
 }
-
 header.open .header__menu-btn span:nth-child(1) {
   top: 50%;
   transform: translate(0, -50%) rotate(45deg);
 }
-
 header.open .header__menu-btn span:nth-child(2) {
   width: 0;
 }
-
 header.open .header__menu-btn span:nth-child(3) {
   top: 50%;
   transform: translate(0, -50%) rotate(-45deg);
@@ -100,7 +95,6 @@ header.open .header__menu-btn span:nth-child(3) {
   cursor: pointer;
   display: none;
 }
-
 .header__menu-btn span {
   position: absolute;
   width: 100%;
@@ -111,19 +105,21 @@ header.open .header__menu-btn span:nth-child(3) {
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
 }
-
 .header__menu-btn span:nth-child(1) {
   top: 0;
 }
-
 .header__menu-btn span:nth-child(2) {
   top: 50%;
   transform: translate(0, -50%);
 }
-
 .header__menu-btn span:nth-child(3) {
   top: 100%;
   transform: translate(0, -100%);
+}
+@media (max-width: 665px) {
+  .header__menu-btn {
+    display: block;
+  }
 }
 
 .header {
@@ -133,41 +129,41 @@ header.open .header__menu-btn span:nth-child(3) {
   padding: 25px 0;
   width: 100%;
 }
-
 .header__container {
   display: flex;
-  gap: 100px;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
 }
-
+@media (max-width: 665px) {
+  .header__container {
+    justify-content: space-between;
+  }
+}
 .header__logo {
   width: 103px;
   height: 38px;
+  margin-right: 100px;
 }
-
 .header__ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
 }
-
+.header__li:not(:last-child) {
+  margin-right: 30px;
+}
 .header__li.active a {
   color: #3378ff;
 }
-
 .header__li a {
   color: #737aae;
   text-decoration: none;
   transition: color 0.2s ease;
 }
-
 .header__li a:hover {
   color: #3378ff;
 }
-
 .header__menu-body {
   position: absolute;
   top: 100px;
@@ -177,7 +173,6 @@ header.open .header__menu-btn span:nth-child(3) {
   pointer-events: none;
   transform: scale(0);
 }
-
 .header__menu-body ul.header__ul {
   flex-direction: column;
   width: 300px;
@@ -185,6 +180,10 @@ header.open .header__menu-btn span:nth-child(3) {
   border-radius: 25px;
   background-color: #1e2133;
   padding: 20px;
+}
+.header__menu-body ul.header__ul li:not(:last-child) {
+  margin-right: 0;
+  margin-bottom: 30px;
 }
 
 body {
@@ -196,7 +195,6 @@ body {
   position: relative;
   scroll-behavior: smooth;
 }
-
 body.lock {
   overflow: hidden;
 }
@@ -225,7 +223,6 @@ main.page {
   padding: 100px 0;
   background: #181a28;
 }
-
 .section__title {
   font-family: "Montserrat", "open-sans";
   font-weight: 600;
@@ -233,11 +230,9 @@ main.page {
   font-size: 28px;
   text-align: center;
 }
-
 .section__content {
   margin-top: 90px;
 }
-
 .section:nth-child(even) {
   background: #1e2133;
 }
@@ -247,49 +242,57 @@ main.page {
   justify-content: center;
   align-items: center;
 }
-
 .section-hero__left {
   max-width: 570px;
 }
-
+@media (max-width: 800px) {
+  .section-hero__left {
+    max-width: 100%;
+  }
+}
 .section-hero__right {
   max-width: 587px;
 }
-
 .section-hero__right img {
   height: 100%;
   width: auto;
   max-width: 587px;
   max-height: 641px;
 }
-
+@media (max-width: 1200px) {
+  .section-hero__right img {
+    max-width: 400px;
+  }
+}
+@media (max-width: 800px) {
+  .section-hero__right {
+    display: none;
+  }
+}
 .section-hero__title {
   font-size: 36px;
   color: #e9ebf9;
   text-align: left;
 }
-
 .section-hero__title b {
   color: #3378ff;
   font-size: 48px;
   text-transform: uppercase;
 }
-
 .section-hero__text {
   margin-top: 25px;
 }
-
 .section-hero__games {
   margin-top: 25px;
   display: flex;
-  gap: 8px;
   flex-wrap: wrap;
 }
-
 .section-hero__btns {
   margin-top: 25px;
   display: flex;
-  gap: 28px;
+}
+.section-hero__btn:not(:last-child) {
+  margin-right: 28px;
 }
 
 .hero-games__item {
@@ -300,21 +303,25 @@ main.page {
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  height: 38px;
 }
-
+.hero-games__item:not(:last-child) {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
 .hero-games__item img {
   width: 22px;
   height: 22px;
 }
 
 .section-advantages__ul {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 370px));
   justify-content: center;
   align-items: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
 }
-
 .section-advantages__item {
   max-width: 370px;
   min-width: 300px;
@@ -327,7 +334,6 @@ main.page {
   align-items: center;
   padding: 30px;
 }
-
 .section-advantages__item:hover {
   background: rgba(46, 50, 88, 0.22);
 }
@@ -335,7 +341,6 @@ main.page {
 .advantages-item__img {
   margin-bottom: 30px;
 }
-
 .advantages-item__title {
   margin-bottom: 8px;
   font-family: "Montserrat";
@@ -343,19 +348,18 @@ main.page {
   font-size: 18px;
   color: #e9ebf9;
 }
-
 .advantages-item__text {
   text-align: center;
 }
 
 .section-products__ul {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 270px));
   justify-content: center;
   align-items: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
 }
-
 .section-products__li {
   max-width: 270px;
   min-width: 250px;
@@ -370,28 +374,24 @@ main.page {
   border-radius: 5px;
   border-collapse: collapse;
   text-align: left;
+  background-color: #23273d;
   overflow: hidden;
   cursor: pointer;
 }
-
 .section-products__li:hover {
   border-color: #3378ff;
 }
-
 .section-products__li:hover img {
   border-color: #3378ff;
 }
-
 .section-products__img {
   margin-bottom: 30px;
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s ease;
   width: 100%;
   max-height: 150px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
-
 .section-products__title {
   padding: 0 30px;
   margin-bottom: 5px;
@@ -400,7 +400,6 @@ main.page {
   font-family: "Montserrat";
   font-weight: 600;
 }
-
 .section-products__price {
   padding: 0 30px;
   font-size: 14px;
@@ -412,14 +411,24 @@ main.page {
   display: flex;
   justify-content: center;
   align-items: space-around;
-  gap: 60px;
-  flex-wrap: wrap;
 }
-
+@media (max-width: 830px) {
+  .section-payment .section__content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 .section-payment__steps {
   flex: 1 1 auto;
+  margin-right: 60px;
 }
-
+@media (max-width: 830px) {
+  .section-payment__steps {
+    margin-right: 0;
+    margin-bottom: 60px;
+  }
+}
 .section-payment__payment {
   max-width: 370px;
   width: 370px;
@@ -431,7 +440,6 @@ main.page {
   position: relative;
   padding-bottom: 20px;
 }
-
 .payment-steps__step::before {
   content: "";
   position: absolute;
@@ -442,38 +450,41 @@ main.page {
   opacity: 0.2;
   background-color: #737aae;
 }
-
 .payment-steps__step1 {
   margin-bottom: 20px;
 }
-
 .payment-steps__with {
   display: flex;
   flex-wrap: wrap;
 }
-
 .payment-steps__step2 {
   width: 50%;
   min-width: 220px;
 }
-
+@media (max-width: 475px) {
+  .payment-steps__step2 {
+    width: 100%;
+  }
+}
 .payment-steps__step3 {
   width: 50%;
   min-width: 220px;
 }
-
+@media (max-width: 475px) {
+  .payment-steps__step3 {
+    width: 100%;
+  }
+}
 .payment-steps__stepInfo {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
-
 .payment-steps__gameWrapper {
   position: relative;
   margin-bottom: 50px;
 }
-
 .payment-steps__gameWrapper::before {
   content: "";
   position: absolute;
@@ -483,13 +494,11 @@ main.page {
   height: 1px;
   background: #2d325a;
 }
-
 .payment-steps__title {
   color: #e9ebf9;
   font-size: 15px;
   margin-bottom: 15px;
 }
-
 .payment-steps__game {
   width: 100%;
   display: flex;
@@ -499,15 +508,12 @@ main.page {
   background: #23273d;
   padding-bottom: 10px;
 }
-
 .payment-steps__gameImg {
   width: 100%;
   height: 150px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   margin-bottom: 10px;
 }
-
 .payment-steps__gameTitle {
   padding-left: 10px;
   color: #e9ebf9;
@@ -515,13 +521,10 @@ main.page {
   font-family: "Montserrat";
   font-weight: 500;
 }
-
 .payment-steps__inputs {
   display: flex;
-  gap: 45px;
   flex-wrap: wrap;
 }
-
 .payment-steps__label {
   display: flex;
   flex-direction: column;
@@ -532,7 +535,9 @@ main.page {
   color: rgba(115, 122, 174, 0.5);
   position: relative;
 }
-
+.payment-steps__label:not(:last-child) {
+  margin-right: 45px;
+}
 .payment-steps__label::before {
   content: "";
   position: absolute;
@@ -545,11 +550,9 @@ main.page {
   transform: scale(0);
   transition: transform 0.3s ease;
 }
-
 .payment-steps__label.active::before {
   transform: scale(1);
 }
-
 .payment-steps__label input[type=text] {
   padding: 10px 15px;
   padding-right: 70px;
@@ -561,25 +564,16 @@ main.page {
   margin-top: 10px;
   position: relative;
 }
-
-.payment-steps__label input[type=text]::-moz-placeholder {
-  color: #737aae;
-}
-
 .payment-steps__label input[type=text]::placeholder {
   color: #737aae;
 }
-
 .payment-steps__label input[type=text]:focus {
   outline: 1px solid #3378ff;
 }
-
 .payment-steps__inputs.radio {
   display: flex;
-  gap: 45px;
   flex-wrap: wrap;
 }
-
 .payment-steps__inputs.radio label {
   width: auto;
   display: flex;
@@ -593,16 +587,16 @@ main.page {
   position: relative;
   cursor: pointer;
 }
-
+.payment-steps__inputs.radio label:not(:last-child) {
+  margin-right: 45px;
+}
 .payment-steps__inputs.radio label input[type=radio] {
   display: none;
 }
-
 .payment-steps__inputs.radio img {
   width: 22px;
   height: 22px;
 }
-
 .payment-steps__inputs.radio input:checked + .fake::before {
   content: "";
   position: absolute;
@@ -617,7 +611,6 @@ main.page {
 .step {
   margin-bottom: 10px;
 }
-
 .step__num {
   font-family: "Montserrat";
   font-weight: 500;
@@ -633,7 +626,6 @@ main.page {
   position: absolute;
   left: -38px;
 }
-
 .step__title {
   font-family: "Open Sans";
   font-size: 14px;
@@ -642,24 +634,21 @@ main.page {
 .payment-detail__wrapper {
   display: flex;
   flex-direction: column;
-  gap: 30px;
   padding: 25px;
   background-color: #23273d;
   border-radius: 5px;
 }
-
 .payment-detail__text {
   text-align: center;
   font-size: 14px;
   margin-top: 15px;
 }
-
 .payment-detail__title {
   text-align: center;
   font-size: 15px;
   position: relative;
+  margin-bottom: 30px;
 }
-
 .payment-detail__title::before {
   content: "";
   width: 100%;
@@ -669,15 +658,14 @@ main.page {
   left: 0;
   bottom: -15px;
 }
-
 .payment-detail__order {
   font-size: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  margin-bottom: 30px;
 }
-
 .payment-detail__order::before {
   content: "";
   width: 100%;
@@ -687,15 +675,14 @@ main.page {
   bottom: -15px;
   left: 0;
 }
-
 .payment-detail__price {
   font-size: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  margin-bottom: 30px;
 }
-
 .payment-detail__price::before {
   content: "";
   width: 100%;
@@ -705,145 +692,121 @@ main.page {
   bottom: -15px;
   left: 0;
 }
-
 .payment-detail__price b {
   color: #e9ebf9;
   font-size: 20px;
   font-family: "Montserrat";
   font-weight: 600;
 }
-
 .footer {
   background: #23273d;
 }
-
 .footer__top {
   width: 100%;
   display: flex;
   padding: 50px 0;
 }
-
 .footer__columns {
   width: 100%;
   display: flex;
-  gap: 40px;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
 }
-
+@media (max-width: 680px) {
+  .footer__columns {
+    flex-direction: column;
+  }
+  .footer__columns .footer__item:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+}
 .footer__item {
   display: flex;
   flex-direction: column;
-  gap: 30px;
 }
-
+.footer__item:not(:last-child) {
+  margin-right: 30px;
+}
+.footer__logo {
+  margin-bottom: 30px;
+}
+.footer__text {
+  margin-bottom: 30px;
+}
 .footer__payments {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 30px;
 }
-
+.footer__payments img:not(:last-child) {
+  margin-right: 30px;
+}
 .footer__ultitle {
   font-family: "Montserrat";
   font-weight: 500;
   color: #737aae;
   opacity: 0.7;
   font-size: 14px;
+  margin-bottom: 30px;
 }
-
 .footer__ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 25px;
 }
-
+.footer__li:not(:last-child) {
+  margin-bottom: 25px;
+}
 .footer__li a {
   font-size: 16px;
   text-decoration: none;
   color: #737aae;
   transition: color 0.3s ease;
 }
-
 .footer__li a:hover {
   color: #e9ebf9;
 }
-
 .footer__bottom {
   padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
 }
-
+@media (max-width: 580px) {
+  .footer__bottom {
+    flex-direction: column;
+  }
+}
 .footer__bottom .footer__text {
   font-size: 13px;
+  margin-bottom: 0;
+  margin-right: 15px;
 }
-
+@media (max-width: 580px) {
+  .footer__bottom .footer__text {
+    margin-bottom: 15px;
+  }
+}
 .footer__bottom .footer__soc {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 25px;
 }
-
+.footer__bottom .footer__soc li:not(:last-child) {
+  margin-right: 25px;
+}
 .footer__bottom .footer__soc li svg {
   width: 22px;
   height: 22px;
 }
-
 .footer__bottom .footer__soc li svg path {
   fill: #737aae;
   transition: fill 0.3s ease;
 }
-
 .footer__bottom .footer__soc li svg:hover path {
   fill: #3378ff;
-}
-
-@media (max-width: 1200px) {
-  .section-hero__right img {
-    max-width: 400px;
-  }
-}
-
-@media (max-width: 800px) {
-  .section-hero__left {
-    max-width: 100%;
-  }
-
-  .section-hero__right {
-    display: none;
-  }
-}
-
-@media (max-width: 680px) {
-  .footer__columns {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 665px) {
-  .header__menu-btn {
-    display: block;
-  }
-
-  .header__container {
-    justify-content: space-between;
-  }
-}
-
-@media (max-width: 475px) {
-  .payment-steps__step2 {
-    width: 100%;
-  }
-
-  .payment-steps__step3 {
-    width: 100%;
-  }
 }
